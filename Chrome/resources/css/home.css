@@ -1,0 +1,35 @@
+body 
+{
+    background-color: #5b5555;
+    width: 800px;
+    height: 350px;
+}
+
+.sub
+{
+    color: #e5e5e5;
+    margin: 3px 0 3px 0;
+    font-size: 1.5vw;
+    font-family: 'Rubik'
+}
+
+.sub:hover
+{
+    text-decoration: underline;
+}
+
+a:link, a:visited, a:hover, a:active 
+{
+    text-decoration: none;
+}
+
+img 
+{
+    width: 100%
+}
+
+a > img:hover
+{
+    outline: 1px solid #e5e5e5;
+    outline-offset: -1px;
+}
