@@ -96,7 +96,7 @@ function saveBackgroundColor(url, color) {
 }
 
 
-  var SDK = new Sdk3dRudder({schemeWs: "ws"});
+  var SDK = new Sdk3dRudder();
   var connect = false;
   function startStop() {
       connect = !connect;

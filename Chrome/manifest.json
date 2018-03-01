@@ -4,20 +4,20 @@
   "name": "3dRudder Chrome",
   "description": "This extension allows the user to use the 3dRudder controller on web page.",
   "version": "1.0",
-  "options_page": "axis.html",
+  "options_page": "popup.html",
   "content_scripts": [
     {
-      "matches": ["http://www.youtube.com/watch*", "https://www.youtube.com/watch*"],      
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],      
       "js": ["content-script.js"]
     }
   ],
   "web_accessible_resources": [
-    "3dRudder-1.0.3.js",
+    "3dRudder-1.0.4.js",
     "video.js"
   ],
   "browser_action": {
     "default_icon": "icon.png",
-    "default_popup": "Home.html"
+    "default_popup": "popup.html"
   },
   "permissions": [
     "activeTab",

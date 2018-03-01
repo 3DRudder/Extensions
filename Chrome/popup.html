@@ -1,49 +1,90 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
-<html>
+<html lang="en">
   <head>
-    <title>3dRudder Extension's option</title>
-    <style type="text/css">
-      body {
-        margin: 10px;
-        white-space: nowrap;
-      }
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      h1 {
-        font-size: 15px;
-      }
-
-      #container {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-      }
-    </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-    -->
-    <!--script src="popup.js"></script-->
+    <!-- Bootstrap CSS -->
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="resources/css/home.css" rel="stylesheet" media="screen">
+    <script src="resources/js/jquery-3.2.1.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="3dRudder-1.0.4.js"></script>
+    <script src="client.js"></script>
+    <title>Popup 3dRudder Chrome Extension</title>
   </head>
-
   <body>
-    <h1>Background Color Changer</h1>
-    <div id="container">
-      <span>Choose a color</span>
-      <select id="dropdown">
-        <option selected disabled hidden value=''></option>
-        <option value="white">White</option>
-        <option value="pink">Pink</option>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
-      </select>
+    <div class="container">      
+      <div class="alert" id="serverInfo" role="alert"></div>     
+      <div>           
+        <button id="button0" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder0" aria-expanded="false" aria-controls="3dRudder0">3dRudder 0</button>
+        <button id="button1" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder1" aria-expanded="false" aria-controls="3dRudder1">3dRudder 1</button>
+        <button id="button2" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder2" aria-expanded="false" aria-controls="3dRudder2">3dRudder 2</button>
+        <button id="button3" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder3" aria-expanded="false" aria-controls="3dRudder3">3dRudder 3</button>
+      </div>
+      <div class="collapse" id="3dRudder0">
+        <div class="card card-body">
+          <div>Connected <span id="connected0" class="badge">false</span></div>
+          <div>Status <span id="status0" class="badge badge-info">NoStatus</span></div>
+          <div>Axis <span id="axis0" class="badge">{pitch, roll, yaw, updwon}</span></div>
+          <div>Sensors <span id="sensors0" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
+        </div>
+      </div>
+      <div class="collapse" id="3dRudder1">
+        <div class="card card-body">
+          <div>Connected <span id="connected1" class="badge">false</span></div>
+          <div>Status <span id="status1" class="badge badge-info">NoStatus</span></div>
+          <div>Axis <span id="axis1" class="badge">{pitch, roll, yaw, updwon}</span></div>
+          <div>Sensors <span id="sensors1" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
+        </div>
+      </div>
+      <div class="collapse" id="3dRudder2">
+        <div class="card card-body">
+          <div>Connected <span id="connected2" class="badge">false</span></div>
+          <div>Status <span id="status2" class="badge badge-info">NoStatus</span></div>
+          <div>Axis <span id="axis2" class="badge">{pitch, roll, yaw, updwon}</span></div>
+          <div>Sensors <span id="sensors2" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
+        </div>
+      </div>
+      <div class="collapse" id="3dRudder3">
+        <div class="card card-body">
+          <div>Connected <span id="connected3" class="badge">false</span></div>
+          <div>Status <span id="status3" class="badge badge-info">NoStatus</span></div>
+          <div>Axis <span id="axis3" class="badge">{pitch, roll, yaw, updwon}</span></div>
+          <div>Sensors <span id="sensors3" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
+        </div>
+      </div>
+      <!--table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table-->
     </div>
   </body>
 </html>

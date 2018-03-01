@@ -9,14 +9,15 @@ https://developer.chrome.com/extensions/content_scripts.html#execution-environme
 var s = document.createElement('script');
 s.src = chrome.extension.getURL("3dRudder-1.0.3.js");
 s.onload = function() {
-    console.log("3drudder loaded");
+    console.log("[3dRudder] loaded");
     var j = document.createElement('script');
     j.src = chrome.extension.getURL("video.js");
-    (document.head||document.documentElement).appendChild(j);
-    console.log("video started");
+    j.onload = function() {
+        console.log("[3dRudder] extension loaded");
+    };
+    (document.head||document.documentElement).appendChild(j);    
 };
 (document.head||document.documentElement).appendChild(s);
-console.log("3drudder Started!");
 
 /*chrome.storage.sync.set({'value': window.location.href }, function() {
     // Notify that we saved.
