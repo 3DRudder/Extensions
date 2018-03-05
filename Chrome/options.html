@@ -11,6 +11,17 @@
     <script src="resources/js/bootstrap.min.js"></script>
     <script src="3dRudder-1.0.4.js"></script>
     <script src="options.js"></script>
+    <style>
+        .inverse {            
+            float: right;
+        }
+        .progress {            
+            display: block;
+        }
+        .progress-bar {
+            transition: none;
+        }
+    </style>
     <title>Options 3dRudder Chrome Extension</title>
   </head>
   <body>
@@ -46,6 +57,18 @@
                                         <option value="yaw">Yaw</option>
                                         <option value="updown">Updown</option>
                                     </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="progress">
+                                            <div id="playpausePBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="progress">
+                                            <div id="playpausePBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
                                 </div>     
                                 <div class="input-group mb-3">                   
                                     <div class="input-group-prepend">
@@ -55,7 +78,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text">%</span>
                                     </div>
-                                </div>
+                                </div>                                
                             </div>
                             <div class="col col-lg-4">
                                 <h5 class="alert alert-secondary">FastForward/Rewind</h5>
@@ -69,7 +92,19 @@
                                         <option value="yaw">Yaw</option>
                                         <option value="updown">Updown</option>
                                     </select>  
-                                </div>     
+                                </div>
+                                <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="progress">
+                                                <div id="forwardrewindPBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="progress">
+                                                <div id="forwardrewindPBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>     
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Threshold</span>
@@ -102,6 +137,18 @@
                                         <option value="updown">Updown</option>
                                     </select>   
                                 </div>
+                                <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="progress">
+                                                <div id="volumePBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="progress">
+                                                <div id="volumePBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <div class="input-group mb-3">                         
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Threshold</span>
