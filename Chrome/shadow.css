@@ -1,0 +1,37 @@
+* {
+    line-height: 1.8em;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+  }
+  
+  :host(:hover) #controls3dRudder {
+    display: table-cell;
+  }
+  
+  #controller3dRudder {
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    background: black;
+    color: white;
+  
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 10px 10px 15px;
+  
+    cursor: default;
+    z-index: 9999999;
+    opacity: 0.3;
+  }
+  
+  #controller3dRudder:hover {
+    opacity: 0.7;
+  }
+  
+  #controls3dRudder {
+    display: none;
+    padding-left: 10px;
+    vertical-align: middle;
+  }
+  

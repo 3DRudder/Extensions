@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         controllers.forEach(function(element, index, array) {            
             if (element.connected) {
                 $(`#connected${index}`).text(true).addClass('badge-success');
-                $(`#status${index}`).text(element.status);
-                $(`#axis${index}`).text(JSON.stringify(element.axis));
+                $(`#status${index}`).text(SDK.getStatusString(element.status));
+                var axis = element.axis;
+                $(`#axis${index}`).text(`pitch: ${axis.pitch.toFixed(2)} / roll: ${axis.roll.toFixed(2)} / yaw: ${axis.yaw.toFixed(2)} / updown: ${axis.updown.toFixed(2)}`);
                 $(`#sensors${index}`).text(element.sensors);
             } else {
                 $(`#connected${index}`).text(false).removeClass('badge-success');
@@ -34,5 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // end connection
     SDK.on('end', function() {
         $("#serverInfo").text("Server offline").addClass("alert-danger");        
+    });
+
+    $("#options").click(function() {
+        if (chrome.runtime.openOptionsPage) {
+            // New way to open options pages, if supported (Chrome 42+).
+            chrome.runtime.openOptionsPage();
+        } else {
+            // Reasonable fallback.
+            window.open(chrome.runtime.getURL('options.html'));
+        }
     });
 });

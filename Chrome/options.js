@@ -1,16 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
-    var ITEMS;
+var defaultSettings = {
+    playpause: {axis:"pitch", threshold:0.2},
+    forwardrewind: {axis:"roll", speed:5, threshold:0.2},
+    volume: {axis:"yaw", threshold:0.2}
+};
+
+var settings = defaultSettings;
+
+function restoreDefault() {
     // get local storage
-    chrome.storage.sync.get((items) => {
-        console.log(items);
-        if (jQuery.isEmptyObject(items)) {            
-            items = {
-                playpause: {axis:"pitch", threshold:0.2},
-                forwardrewind: {axis:"yaw", speed:1, threshold:0.2},
-                volume: {axis:"roll", threshold:0.2}
-            };
-            chrome.storage.sync.set(items);
-        }
+    chrome.storage.sync.get(defaultSettings, (items) => {                
         // display on options inputs
         $("#playpause").val(items.playpause.axis);
         $("#playpauseThreshold").val(items.playpause.threshold*100);
@@ -19,36 +17,48 @@ document.addEventListener('DOMContentLoaded', () => {
         $("#forwardrewindSpeed").val(items.forwardrewind.speed);
         $("#volume").val(items.volume.axis);
         $("#volumeThreshold").val(items.volume.threshold*100);
-        ITEMS = items;        
+        settings = items;            
     });
+}
+
+function resetDefault() {
+    chrome.storage.sync.set(defaultSettings, function() {
+        restoreDefault();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+            
+    restoreDefault();    
+    $("#reset").click(resetDefault);
 
     // event input change
     $("#playpause").change(function() {
-        ITEMS.playpause.axis = $(this).val();
-        chrome.storage.sync.set(ITEMS);
+        settings.playpause.axis = $(this).val();
+        chrome.storage.sync.set(settings);
     });
     $("#playpauseThreshold").change(function() {
-        ITEMS.playpause.threshold = parseInt($(this).val())/100;
-        chrome.storage.sync.set(ITEMS);
+        settings.playpause.threshold = parseInt($(this).val())/100;
+        chrome.storage.sync.set(settings);
     });
     $("#forwardrewind").change(function() {
-        ITEMS.forwardrewind.axis = $(this).val();
-        chrome.storage.sync.set(ITEMS);
+        settings.forwardrewind.axis = $(this).val();
+        chrome.storage.sync.set(settings);
     });
     $("#forwardrewindSpeed").change(function() {
-        ITEMS.forwardrewind.speed = parseFloat($(this).val());
-        chrome.storage.sync.set(ITEMS);
+        settings.forwardrewind.speed = parseFloat($(this).val());
+        chrome.storage.sync.set(settings);
     });
     $("#forwardrewindThreshold").change(function() {
-        ITEMS.forwardrewind.threshold = parseInt($(this).val())/100;
-        chrome.storage.sync.set(ITEMS);
+        settings.forwardrewind.threshold = parseInt($(this).val())/100;
+        chrome.storage.sync.set(settings);
     });
     $("#volume").change(function() {
-        ITEMS.volume.axis = $(this).val();
-        chrome.storage.sync.set(ITEMS);
+        settings.volume.axis = $(this).val();
+        chrome.storage.sync.set(settings);
     });
     $("#volumeThreshold").change(function() {
-        ITEMS.volume.threshold = parseInt($(this).val())/100;
-        chrome.storage.sync.set(ITEMS);
+        settings.volume.threshold = parseInt($(this).val())/100;
+        chrome.storage.sync.set(settings);
     });
 });
