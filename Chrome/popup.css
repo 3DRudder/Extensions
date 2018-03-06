@@ -1,0 +1,47 @@
+body {
+	width: 397px;
+	height: 600px;
+	/*overflow-x: hidden;*/
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #9a9a9a;
+    color: white;
+}
+
+.bg-rudder {
+    background-color: #33c5ab;
+    margin-bottom: 5px;
+    padding: 0rem 1rem;    
+}
+
+.alert {
+    padding: .1rem 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 0.5rem!important;
+    /*max-height: 25px;*/
+}
+
+.icon { 
+    /*height: 24px;*/
+}
+.icon.settings {
+    background-image:url("resources/img/Parameters-blanc_28px.png");    
+    cursor: pointer;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+}
+a:hover {
+    color: #33c5ab;    
+}

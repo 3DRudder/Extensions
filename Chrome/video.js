@@ -1,8 +1,9 @@
 chrome.runtime.sendMessage({}, function(response) {
     // default params
     var settings = {
+        enable: true,
         playpause: {axis:"pitch", threshold:0.2},
-        forwardrewind: {axis:"roll", speed:5, threshold:0.2},
+        forwardrewind: {axis:"roll", speed:2, threshold:0.2},
         volume: {axis:"yaw", threshold:0.2}
     };
 
@@ -72,7 +73,7 @@ chrome.runtime.sendMessage({}, function(response) {
 
             setInterval( function() {
                 var controller = SDK.controllers[0];
-                if (active && controller.connected && settings !== null) {
+                if (active && controller.connected && settings !== null && settings.enable) {
                     var pp = settings.playpause;
                     var fr = settings.forwardrewind;
                     var v = settings.volume;

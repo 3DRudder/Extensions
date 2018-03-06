@@ -1,0 +1,105 @@
+.inverse {            
+    float: right;
+}
+.progress {            
+    display: block;
+}
+.progress-bar {
+    transition: none;
+}
+.card-header {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.nav-tabs {
+    border-bottom: 2px solid #33c5ab;
+    margin-bottom: 10px;
+}
+.nav-tabs .nav-item{
+    margin-bottom: 0px;
+}
+.nav-tabs .nav-link {
+    background-color: #e2e3e5;
+    color: black;
+    margin-right: 2px;
+    min-width: 170px;
+}
+.nav-tabs .nav-link.active {
+    background-color: #33c5ab;
+    color: white;
+    border-color: transparent;
+}
+.nav-pills .nav-link {
+    background-color: #f8f9fa;
+    color: black;
+    margin-right: 2px;
+    min-width: 170px;
+    border: 2px solid white;
+}
+.nav-pills .nav-link.active {
+    background-color: #dfe0e1;
+    color: black;            
+}
+.input-group-prepend .input-group-text {            
+    min-width: 100px;
+}
+.input-group-text {
+    background-color: transparent;         
+}
+.icon {            
+    height: 28px;    
+    width: 34px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.icon.playpause {
+    background-image:url("resources/img/Play-pause-button-grey_28px.png");            
+}
+.icon.forwardrewind {
+    width: 75px;
+    background-image:url("resources/img/Backward-Forward-button-grey_28px.png");            
+}
+.icon.volume {
+    background-image:url("resources/img/Sound-button-grey_28px.png");            
+}  
+.icon.logo {
+    background-image:url("resources/img/3dR_Logo_80px.png");
+    height: 80px;    
+    width: 100px;
+    float: right;            
+}       
+.title-right {
+    float: right;
+    line-height: 28px;
+}
+.gif {
+    height: 275px;
+    width: 225px;
+}
+.gif.pitch {
+    background-image: url("resources/img/Mouv_base_Filaire_Pitch_225x275.gif");
+}
+.gif.roll {
+    background-image: url("resources/img/Mouv_base_Filaire_Roll_225x275.gif");
+}
+.gif.yaw {
+    background-image: url("resources/img/Mouv_base_Filaire_Yaw_225x275.gif");
+}
+.gif.updown {
+    background-image: url("resources/img/Mouv_base_Filaire_UpDown_225x275.gif");
+}
+.btn-outline-rudder {
+    color: #33c5ab;
+    background-color: transparent;
+    background-image: none;
+    border-color: #33c5ab;
+}
+.btn-outline-rudder:hover {
+    color: #fff;
+    background-color: #33c5ab;
+    border-color: #33c5ab;
+}
+a {
+    color: #33c5ab;
+}

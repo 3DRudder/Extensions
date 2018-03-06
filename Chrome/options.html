@@ -11,42 +11,46 @@
     <script src="resources/js/bootstrap.min.js"></script>
     <script src="3dRudder-1.0.4.js"></script>
     <script src="options.js"></script>
-    <style>
-        .inverse {            
-            float: right;
-        }
-        .progress {            
-            display: block;
-        }
-        .progress-bar {
-            transition: none;
-        }
-    </style>
+    <link href="options.css" rel="stylesheet">   
     <title>Options 3dRudder Chrome Extension</title>
   </head>
   <body>
     <div class="container">
         <div class="card">
-            <div class="card-header">Options 3dRudder Chrome Extension</div>
-            <div class="card-body">            
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <div class="card-header">
+                <div class="icon logo"></div>
+                <h2><b>3dRudder</b> | Video playback control</h2>
+                <h4>Settings page</h4>                
+            </div>
+            <div class="card-body">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="true">Video</a>
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="true">Video settings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-about-tab" data-toggle="pill" href="#pills-about" role="tab" aria-controls="pills-about" aria-selected="false">About</a>
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pills-about" role="tab" aria-controls="pills-about" aria-selected="false">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="debug-tab" data-toggle="tab" href="#pills-debug" role="tab" aria-controls="pills-debug" aria-selected="false">Debug</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
                         <h3>HTML5 video controls</h3>
-                        <button type="button" id="reset" class="btn btn-outline-primary">Reset Params</button>
+                        <button type="button" id="reset" style="margin-bottom: 10px;" class="btn btn-outline-rudder">Reset to default values</button>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="activateExt">
+                            <label class="custom-control-label" for="activateExt">Don't activate now</label>
+                        </div>
                         <div class="row">
                             <div class="col col-lg-4">
-                                <h5 class="alert alert-secondary">Play/Pause</h5>
+                                <div class="alert alert-secondary">
+                                    <div class="icon playpause"></div>
+                                    <h5 class="title-right">Play/Pause</h5>
+                                </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" for="inputGroupSelect01">Axis</label>
@@ -58,7 +62,7 @@
                                         <option value="updown">Updown</option>
                                     </select>
                                 </div>
-                                <div class="row">
+                                <!--div class="row">
                                     <div class="col-md-6">
                                         <div class="progress">
                                             <div id="playpausePBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -69,7 +73,7 @@
                                             <div id="playpausePBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
-                                </div>     
+                                </div-->     
                                 <div class="input-group mb-3">                   
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Threshold</span>
@@ -81,7 +85,10 @@
                                 </div>                                
                             </div>
                             <div class="col col-lg-4">
-                                <h5 class="alert alert-secondary">FastForward/Rewind</h5>
+                                <div class="alert alert-secondary">
+                                    <div class="icon forwardrewind"></div>
+                                    <h5 class="title-right">Fast Forward/Rewind</h5>
+                                </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" for="inputGroupSelect02">Axis</label>
@@ -93,18 +100,18 @@
                                         <option value="updown">Updown</option>
                                     </select>  
                                 </div>
-                                <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="progress">
-                                                <div id="forwardrewindPBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
+                                <!--div class="row">
+                                    <div class="col-md-6">
+                                        <div class="progress">
+                                            <div id="forwardrewindPBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="progress">
-                                                <div id="forwardrewindPBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="progress">
+                                            <div id="forwardrewindPBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                    </div>     
+                                    </div>
+                                </div-->     
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Threshold</span>
@@ -114,18 +121,24 @@
                                         <span class="input-group-text">%</span>
                                     </div>
                                 </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Speed</span>
-                                    </div>
-                                    <input type="number" step="0.01" id="forwardrewindSpeed" class="form-control" placeholder="multiplicater" aria-label="Value" aria-describedby="basic-addon1">
-                                    <div class="input-group-append">
-                                            <span class="input-group-text">frame/second</span>
-                                        </div>
+                                <div class="row">
+                                    <span class="mx-auto" id="basic-addon1">Max Speed</span>
+                                    <span class="mx-auto" id="basic-addon1">x2</span>                                    
+                                    <input type="range" id="forwardrewindSpeed" min="2" max="5" step="1" list="tickmarks">
+                                    <datalist id="tickmarks">
+                                        <option value="2" label="x2">
+                                        <option value="3" label="x3">
+                                        <option value="4" label="x4">
+                                        <option value="5" label="x5">  
+                                    </datalist>
+                                    <span class="mx-auto">x5</span>
                                 </div>
                             </div>
                             <div class="col col-lg-4">
-                                <h5 class="alert alert-secondary">Volume +/-</h5>
+                                <div class="alert alert-secondary">
+                                    <div class="icon volume"></div>
+                                    <h5 class="title-right">Volume +/-</h5>
+                                </div>                                
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" for="inputGroupSelect03">Axis</label>
@@ -137,18 +150,18 @@
                                         <option value="updown">Updown</option>
                                     </select>   
                                 </div>
-                                <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="progress">
-                                                <div id="volumePBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="progress">
-                                                <div id="volumePBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
+                                <!--div class="row">
+                                    <div class="col-md-6">
+                                        <div class="progress">
+                                            <div id="volumePBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="progress">
+                                            <div id="volumePBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div-->
                                 <div class="input-group mb-3">                         
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Threshold</span>
@@ -160,12 +173,96 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card bg-light">
+                            <div class="card-header">
+                                <h2>3dRudder's axes</h2>                                
+                            </div>
+                            <div class="card-body">
+                                <div class="row justify-content-around">
+                                    <div class="col-3">                                
+                                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                                <h5>Pitch</h5>
+                                                <span>Tilt forward/backward</span>
+                                            </a>
+                                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                                <h5>Roll</h5>
+                                                <span>Tilt left/right</span>
+                                            </a>
+                                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                                <h5>Yaw</h5>
+                                                <span>Rotate left/right</span>
+                                            </a>
+                                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                                <h5>Up/Down</h5>
+                                                <span>Exert pressure heel/toes</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="tab-content" id="v-pills-tabContent">
+                                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                <div class="gif pitch"></div>
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                <div class="gif roll"></div>
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                <div class="gif yaw"></div>
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                                <div class="gif updown"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">
                         About <a href="http://www.3drudder.com">www.3drudder.com</a>
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         Contact <a href="mailto:support@3drudder.com">support@3drudder.com</a>
+                    </div>
+                    <div class="tab-pane fade" id="pills-debug" role="tabpanel" aria-labelledby="pills-debug-tab">
+                        <div class="alert" id="serverInfo" role="alert"></div>                            
+                        <button id="button0" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder0" aria-expanded="false" aria-controls="3dRudder0">3dRudder 0</button>
+                        <button id="button1" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder1" aria-expanded="false" aria-controls="3dRudder1">3dRudder 1</button>
+                        <button id="button2" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder2" aria-expanded="false" aria-controls="3dRudder2">3dRudder 2</button>
+                        <button id="button3" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder3" aria-expanded="false" aria-controls="3dRudder3">3dRudder 3</button>                                
+                        <div class="collapse" id="3dRudder0">
+                            <div class="card card-body">
+                            <div>Connected <span id="connected0" class="badge">false</span></div>
+                            <div>Status <span id="status0" class="badge badge-info">NoStatus</span></div>
+                            <div>Axis <span id="axis0" class="badge">{pitch, roll, yaw, updwon}</span></div>
+                            <div>Sensors <span id="sensors0" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
+                            </div>
+                        </div>      
+                        <div class="collapse" id="3dRudder1">
+                            <div class="card card-body">
+                            <div>Connected <span id="connected1" class="badge">false</span></div>
+                            <div>Status <span id="status1" class="badge badge-info">NoStatus</span></div>
+                            <div>Axis <span id="axis1" class="badge">{pitch, roll, yaw, updwon}</span></div>
+                            <div>Sensors <span id="sensors1" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="3dRudder2">
+                            <div class="card card-body">
+                            <div>Connected <span id="connected2" class="badge">false</span></div>
+                            <div>Status <span id="status2" class="badge badge-info">NoStatus</span></div>
+                            <div>Axis <span id="axis2" class="badge">{pitch, roll, yaw, updwon}</span></div>
+                            <div>Sensors <span id="sensors2" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="3dRudder3">
+                            <div class="card card-body">
+                            <div>Connected <span id="connected3" class="badge">false</span></div>
+                            <div>Status <span id="status3" class="badge badge-info">NoStatus</span></div>
+                            <div>Axis <span id="axis3" class="badge">{pitch, roll, yaw, updwon}</span></div>
+                            <div>Sensors <span id="sensors3" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

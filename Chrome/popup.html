@@ -6,23 +6,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="resources/css/home.css" rel="stylesheet" media="screen">
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet" media="screen">    
     <script src="resources/js/jquery-3.2.1.min.js"></script>
     <script src="resources/js/bootstrap.min.js"></script>
     <script src="3dRudder-1.0.4.js"></script>
+    <script src="options.js"></script>
     <script src="popup.js"></script>
+    <link href="options.css" rel="stylesheet" media="screen">
+    <link href="popup.css" rel="stylesheet" media="screen">
     <title>Popup 3dRudder Chrome Extension</title>
   </head>
   <body>
+    <header>
+      <nav class="navbar navbar-light bg-rudder">
+        <h2 class="navbar-brand mb-0 h1"><b>3dRudder</b> | Video playback control</h2>
+      </nav>
+    </header>
     <div class="container">      
-      <div class="alert" id="serverInfo" role="alert"></div>     
-      <div>           
+      <div class="alert" id="serverInfo" role="alert"></div>
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="alert alert-secondary">
+                  <div class="icon playpause"></div>
+                  <h5 class="title-right">Play/Pause</h5>
+              </div>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01">Axis</label>
+                  </div>
+                  <select class="custom-select" id="playpause">                                    
+                      <option selected value="pitch">Pitch</option>
+                      <option value="roll">Roll</option>
+                      <option value="yaw">Yaw</option>
+                      <option value="updown">Updown</option>
+                  </select>
+              </div>     
+              <div class="input-group mb-3">                   
+                  <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Threshold</span>
+                  </div>
+                  <input type="number" min="0" max="100" step="1" id="playpauseThreshold" class="form-control" placeholder="% of axis to trigger event" aria-label="Value" aria-describedby="basic-addon1">
+                  <div class="input-group-append">
+                      <span class="input-group-text">%</span>
+                  </div>
+              </div>                                
+          </div>
+          <div class="col-lg-4">
+              <div class="alert alert-secondary">
+                  <div class="icon forwardrewind"></div>
+                  <h5 class="title-right">Fast Forward/Rewind</h5>
+              </div>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect02">Axis</label>
+                  </div>
+                  <select class="custom-select" id="forwardrewind">                                    
+                      <option selected value="pitch">Pitch</option>
+                      <option value="roll">Roll</option>
+                      <option value="yaw">Yaw</option>
+                      <option value="updown">Updown</option>
+                  </select>  
+              </div>    
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Threshold</span>
+                  </div>
+                  <input type="number" min="0" max="100" step="1" id="forwardrewindThreshold" class="form-control" placeholder="% of axis to trigger event" aria-label="Value" aria-describedby="basic-addon1">
+                  <div class="input-group-append">
+                      <span class="input-group-text">%</span>
+                  </div>
+              </div>
+              <div class="row">
+                  <span class="mx-auto" id="basic-addon1">Max Speed</span>
+                  <span class="mx-auto" id="basic-addon1">x2</span>                                    
+                  <input type="range" id="forwardrewindSpeed" min="2" max="5" step="1" list="tickmarks">
+                  <datalist id="tickmarks">
+                      <option value="2" label="x2">
+                      <option value="3" label="x3">
+                      <option value="4" label="x4">
+                      <option value="5" label="x5">  
+                  </datalist>
+                  <span class="mx-auto">x5</span>
+              </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="alert alert-secondary">
+                  <div class="icon volume"></div>
+                  <h5 class="title-right">Volume +/-</h5>
+              </div>                                
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect03">Axis</label>
+                  </div>
+                  <select class="custom-select" id="volume">                                    
+                      <option selected value="pitch">Pitch</option>
+                      <option value="roll">Roll</option>
+                      <option value="yaw">Yaw</option>
+                      <option value="updown">Updown</option>
+                  </select>   
+              </div>
+              <div class="input-group mb-3">                         
+                  <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Threshold</span>
+                  </div>
+                  <input type="number" min="0" max="100" step="1" id="volumeThreshold" class="form-control" placeholder="% of axis to trigger event" aria-label="Value" aria-describedby="basic-addon1">
+                  <div class="input-group-append">
+                      <span class="input-group-text">%</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="activateExt">
+        <label class="custom-control-label" for="activateExt">Don't activate now</label>
+      </div>
+      <!--div>           
         <button id="button0" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder0" aria-expanded="false" aria-controls="3dRudder0">3dRudder 0</button>
         <button id="button1" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder1" aria-expanded="false" aria-controls="3dRudder1">3dRudder 1</button>
         <button id="button2" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder2" aria-expanded="false" aria-controls="3dRudder2">3dRudder 2</button>
-        <button id="button3" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder3" aria-expanded="false" aria-controls="3dRudder3">3dRudder 3</button>
-        <button id="options" class="btn btn-info" type="button">Options</button>
+        <button id="button3" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#3dRudder3" aria-expanded="false" aria-controls="3dRudder3">3dRudder 3</button>        
       </div>
       <div class="collapse" id="3dRudder0">
         <div class="card card-body">
@@ -31,7 +133,7 @@
           <div>Axis <span id="axis0" class="badge">{pitch, roll, yaw, updwon}</span></div>
           <div>Sensors <span id="sensors0" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
         </div>
-      </div>
+      </div>      
       <div class="collapse" id="3dRudder1">
         <div class="card card-body">
           <div>Connected <span id="connected1" class="badge">false</span></div>
@@ -55,37 +157,15 @@
           <div>Axis <span id="axis3" class="badge">{pitch, roll, yaw, updwon}</span></div>
           <div>Sensors <span id="sensors3" class="badge">{0, 1, 2, 3, 4, 5}</span></div>
         </div>
-      </div>
-      <!--table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table-->
+      </div-->      
     </div>
+    <footer class="footer">
+        <div class="d-flex mb-3">
+            <span style="margin-left:5px">visit <a href="http://www.3drudder.com" target="_blank">www.3dRudder.com</a></span>            
+            <div class="ml-auto" style="margin-top:-3px">
+              <div id="options" class="icon settings"></div>
+            </div>
+          </div>
+    </footer>
   </body>
 </html>
