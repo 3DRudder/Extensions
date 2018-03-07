@@ -39,28 +39,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     var SDK = new Sdk3dRudder();
     SDK.init();
-    /*SDK.on('frame', function(frame){
+    SDK.on('frame', function(frame){
         var controller = frame.controllers[0];
         if (controller && controller.connected) {
-            var current_progress = parseInt(controller.axis[settings.playpause.axis] * 100);
+            var current_progress = parseInt(controller.axis[settings.playpause.axis] * 100);            
             var pos = current_progress > 0 ? current_progress : 0;
             var neg = current_progress < 0 ? -current_progress : 0;
             $("#playpausePBL").css("width", neg + "%").attr("aria-valuenow", neg).text(neg !== 0 ? neg + "%" : "");
             $("#playpausePBR").css("width", pos + "%").attr("aria-valuenow", pos).text(pos !== 0 ? pos + "%" : "");
+            changeBar(neg, "#playpausePBL", settings.playpause.threshold * 100);
+            changeBar(pos, "#playpausePBR", settings.playpause.threshold * 100);
 
             current_progress = parseInt(controller.axis[settings.forwardrewind.axis] * 100);
             pos = current_progress > 0 ? current_progress : 0;
             neg = current_progress < 0 ? -current_progress : 0;
             $("#forwardrewindPBL").css("width", neg + "%").attr("aria-valuenow", neg).text(neg !== 0 ? neg + "%" : "");
             $("#forwardrewindPBR").css("width", pos + "%").attr("aria-valuenow", pos).text(pos !== 0 ? pos + "%" : "");            
+            changeBar(neg, "#forwardrewindPBL", settings.forwardrewind.threshold * 100);
+            changeBar(pos, "#forwardrewindPBR", settings.forwardrewind.threshold * 100);
 
             current_progress = parseInt(controller.axis[settings.volume.axis] * 100);
             pos = current_progress > 0 ? current_progress : 0;
             neg = current_progress < 0 ? -current_progress : 0;
             $("#volumePBL").css("width", neg + "%").attr("aria-valuenow", neg).text(neg !== 0 ? neg + "%" : "");
             $("#volumePBR").css("width", pos + "%").attr("aria-valuenow", pos).text(pos !== 0 ? pos + "%" : "");
+            changeBar(neg, "#volumePBL", settings.volume.threshold * 100);
+            changeBar(pos, "#volumePBR", settings.volume.threshold * 100);
         }
-    });*/
+    });
+
+    function changeBar(val, element, threshold) {
+        if (val >= threshold) {
+            if (!$(element).hasClass("bg-success")) {
+                $(element).addClass("bg-success");
+            }
+        } else {
+            if ($(element).hasClass("bg-success")) {
+                $(element).removeClass("bg-success");
+            }
+        }
+    }
     // event input change
     $("#playpause").change(function() {
         settings.playpause.axis = $(this).val();

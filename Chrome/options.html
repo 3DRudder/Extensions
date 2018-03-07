@@ -31,10 +31,10 @@
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pills-about" role="tab" aria-controls="pills-about" aria-selected="false">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Support</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="debug-tab" data-toggle="tab" href="#pills-debug" role="tab" aria-controls="pills-debug" aria-selected="false">Debug</a>
+                        <a class="nav-link" id="debug-tab" data-toggle="tab" href="#pills-debug" role="tab" aria-controls="pills-debug" aria-selected="false">Live Data</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -62,7 +62,7 @@
                                         <option value="updown">Updown</option>
                                     </select>
                                 </div>
-                                <!--div class="row">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="progress">
                                             <div id="playpausePBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -73,10 +73,10 @@
                                             <div id="playpausePBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
-                                </div-->     
+                                </div>     
                                 <div class="input-group mb-3">                   
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Threshold</span>
+                                        <span class="input-group-text" id="basic-addon1">Sensitivity</span>
                                     </div>
                                     <input type="number" min="0" max="100" step="1" id="playpauseThreshold" class="form-control" placeholder="% of axis to trigger event" aria-label="Value" aria-describedby="basic-addon1">
                                     <div class="input-group-append">
@@ -100,7 +100,7 @@
                                         <option value="updown">Updown</option>
                                     </select>  
                                 </div>
-                                <!--div class="row">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="progress">
                                             <div id="forwardrewindPBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -111,10 +111,10 @@
                                             <div id="forwardrewindPBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
-                                </div-->     
+                                </div>     
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Threshold</span>
+                                        <span class="input-group-text" id="basic-addon1">Sensitivity</span>
                                     </div>
                                     <input type="number" min="0" max="100" step="1" id="forwardrewindThreshold" class="form-control" placeholder="% of axis to trigger event" aria-label="Value" aria-describedby="basic-addon1">
                                     <div class="input-group-append">
@@ -150,7 +150,7 @@
                                         <option value="updown">Updown</option>
                                     </select>   
                                 </div>
-                                <!--div class="row">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="progress">
                                             <div id="volumePBL" class="progress-bar inverse" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -161,10 +161,10 @@
                                             <div id="volumePBR" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
-                                </div-->
+                                </div>
                                 <div class="input-group mb-3">                         
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Threshold</span>
+                                        <span class="input-group-text" id="basic-addon1">Sensitivity</span>
                                     </div>
                                     <input type="number" min="0" max="100" step="1" id="volumeThreshold" class="form-control" placeholder="% of axis to trigger event" aria-label="Value" aria-describedby="basic-addon1">
                                     <div class="input-group-append">
@@ -219,11 +219,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">
-                        About <a href="http://www.3drudder.com">www.3drudder.com</a>
+                    <div class="tab-pane fade" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">                     
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Visit our website to learn more about the 3dRudder <a href="https://www.3drudder.com" target="_blank">www.3drudder.com</a></li>
+                            <li class="list-group-item">You are a developer? Visit our Github page <a href="https://3drudder.github.io/" target="_blank">https://3drudder.github.io/</a></li>                            
+                        </ul>
                     </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        Contact <a href="mailto:support@3drudder.com">support@3drudder.com</a>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">                                            
+                        <div class="card border-light mb-3">                              
+                            <div class="card-body">
+                                <h5 class="card-title">Tutorial for installation</h5>
+                                <p class="card-text">Click<a href="https://www.3drudder.com/tutorials/install-3drudder-video-control-chrome-extension/" target="_blank"> here </a>to access the tutorial</p>                                
+                                <h5 class="card-title">Troubleshooting</h5>
+                                <p class="card-text">Click <a href="https://wiki.3drudder-download.com/browserextension/video" target="_blank">here</a> to access our wiki</p>                                
+                                <h5 class="card-title">Need more help?</h5>
+                                <p class="card-text">Email us at <a href="mailto:support@3drudder.com">support@3drudder.com</a></p>
+                            </div>
+                        </div>                        
                     </div>
                     <div class="tab-pane fade" id="pills-debug" role="tabpanel" aria-labelledby="pills-debug-tab">
                         <div class="alert" id="serverInfo" role="alert"></div>                            
