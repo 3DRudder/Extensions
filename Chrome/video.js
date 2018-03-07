@@ -110,7 +110,7 @@ chrome.runtime.sendMessage({}, function(response) {
             wrapper.classList.add('v3dr-controller');
             wrapper.dataset['3drid'] = this.id;  
             
-            var shadow = wrapper.createShadowRoot();
+            var shadow = wrapper.attachShadow({mode: 'open'});
             var shadowTemplate = `
             <style>
                 @import "${chrome.runtime.getURL('shadow.css')}";
@@ -134,9 +134,7 @@ chrome.runtime.sendMessage({}, function(response) {
                 </div>
             </div>
             `;
-            shadow.innerHTML = shadowTemplate;         
-
-            this.speedIndicator = shadow.querySelector('span');
+            shadow.innerHTML = shadowTemplate;            
             var fragment = document.createDocumentFragment();
             fragment.appendChild(wrapper);
 
