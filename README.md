@@ -1,7 +1,6 @@
-![language](https://img.shields.io/badge/Language-javascript-green.svg) 
-
 # Extensions for browsers
 
+![language](https://img.shields.io/badge/Language-javascript-green.svg) 
 
 
 ## Install
