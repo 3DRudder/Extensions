@@ -5,6 +5,9 @@
 * Unzip the RootCertificat.zip
 * Launch InstallRootCertificat.exe to install certificate.
 
+## Tutorial 
+[Tuto](https://wiki.3drudder-download.com/browserextension/video)
+
 ## Chrome
 
 This extension allows you to control the following actions with the 3dRudder
