@@ -1,7 +1,6 @@
 # Extensions for browsers
 
-![language](https://img.shields.io/badge/Language-javascript-green.svg) 
-
+![language](https://img.shields.io/badge/Language-javascript-green.svg)
 
 ## Install
 * [Download](http://3drudder-download.com/Internal/RootCertificat.zip) the server
