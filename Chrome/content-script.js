@@ -4,7 +4,7 @@ https://developer.chrome.com/extensions/content_scripts.html#execution-environme
 */
 
 var s = document.createElement('script');
-s.src = chrome.extension.getURL("3dRudder-1.0.4.js");
+s.src = chrome.extension.getURL("3dRudder-2.0.7.js");
 s.onload = function() {
     console.log("[3dRudder] loaded");
     var j = document.createElement('script');

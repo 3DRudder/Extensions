@@ -34,3 +34,7 @@ soon
 ## Edge
 
 soon
+
+## Dev
+
+* [How to create chrome extension](https://developer.chrome.com/extensions/getstarted)

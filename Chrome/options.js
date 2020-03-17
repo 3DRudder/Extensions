@@ -1,8 +1,8 @@
 var defaultSettings = {
     enable: true,
-    playpause: {axis:"pitch", threshold:0.2},
-    forwardrewind: {axis:"roll", speed:2, threshold:0.2},
-    volume: {axis:"yaw", threshold:0.2}
+    playpause: {axis:"forwardbackward", threshold:0.2},
+    forwardrewind: {axis:"leftright", speed:2, threshold:0.2},
+    volume: {axis:"rotation", threshold:0.2}
 };
 
 var settings = defaultSettings;
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 $(`#connected${index}`).text(true).addClass('badge-success');
                 $(`#status${index}`).text(SDK.getStatusString(element.status));
                 var axis = element.axis;
-                $(`#axis${index}`).text(`pitch: ${axis.pitch.toFixed(2)} / roll: ${axis.roll.toFixed(2)} / yaw: ${axis.yaw.toFixed(2)} / updown: ${axis.updown.toFixed(2)}`);
+                $(`#axis${index}`).text(`pitch: ${axis.forwardbackward.toFixed(2)} / roll: ${axis.leftright.toFixed(2)} / yaw: ${axis.rotation.toFixed(2)} / updown: ${axis.updown.toFixed(2)}`);
                 $(`#sensors${index}`).text(element.sensors);
             } else {
                 $(`#connected${index}`).text(false).removeClass('badge-success');

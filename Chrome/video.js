@@ -2,9 +2,9 @@ chrome.runtime.sendMessage({}, function(response) {
     // default params
     var settings = {
         enable: true,
-        playpause: {axis:"pitch", threshold:0.2},
-        forwardrewind: {axis:"roll", speed:2, threshold:0.2},
-        volume: {axis:"yaw", threshold:0.2}
+        playpause: {axis:"forwardbackward", threshold:0.2},
+        forwardrewind: {axis:"leftright", speed:2, threshold:0.2},
+        volume: {axis:"rotation", threshold:0.2}
     };
 
     var injector = {
