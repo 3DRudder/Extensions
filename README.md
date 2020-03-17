@@ -2,10 +2,8 @@
 
 ![language](https://img.shields.io/badge/Language-javascript-green.svg)
 
-## Install
-* [Download](http://3drudder-download.com/Internal/RootCertificat.zip) the server
-* Unzip the RootCertificat.zip
-* Launch InstallRootCertificat.exe to install certificate.
+## Requirements
+* [Dashboard](http://www.3drudder.com/start).
 
 ## Tutorial 
 [Tuto](https://wiki.3drudder-download.com/browserextension/video)
